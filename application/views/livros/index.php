@@ -11,6 +11,7 @@
           <th>Nome Livro</th>
           <th>Autor</th>
           <th>Preço</th>
+          <th>Acessar</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
                 <td>' . $livro->nome . '</td>
                 <td>' . $livro->autor . '</td>
                 <td>' . formatPrice($livro->preco) . '</td>
+                <td>' . anchor('/site/info/' . $livro->id, 'Info', ['title' => 'Mais Informações', 'class' => 'btn btn-info']) . '</td>
               </tr>';
         }
         ?>

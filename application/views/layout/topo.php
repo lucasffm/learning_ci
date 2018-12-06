@@ -10,6 +10,11 @@
   <link href="<?php echo base_url('dist/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="<?php echo base_url('dist/bootstrap/css/dashboard.css') ?>" rel="stylesheet">
+  <style>
+    .m-topo {
+      margin-top: 20px;
+    }
+  </style>
   <title><?php echo $titulo ?></title>
 </head>
 <body>
@@ -22,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <?php echo anchor('', 'Principal', ['class' => 'nav-link']) ?>
+          <?php echo anchor('/', 'Principal', ['class' => 'nav-link']) ?>
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Link 1</a> -->
@@ -40,7 +45,7 @@
       <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <?php echo anchor('', 'Principal', ['class' => 'nav-link']) ?>
+            <?php echo anchor('/', 'Principal', ['class' => 'nav-link']) ?>
           </li>
           <li class="nav-item">
             <?php echo anchor('site/livros', 'Listar Livros', ['class' => 'nav-link']) ?>

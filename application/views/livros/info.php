@@ -3,7 +3,8 @@
 
   <section class="row placeholders">
     <div class="col-12 col-sm-12">
-    <table class="table table-striped">
+    <?php echo anchor('site/livros', 'Voltar', ['class' => 'btn btn-secondary']) ?>
+    <table class="table table-striped m-topo">
       <thead>
         <tr>
           <th>#</th>

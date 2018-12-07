@@ -29,6 +29,9 @@
         <li class="nav-item active">
           <?php echo anchor('/', 'Principal', ['class' => 'nav-link']) ?>
         </li>
+        <li class="nav-item active">
+          <?php echo anchor('usuarios', 'Listar Usuários', ['class' => 'nav-link']) ?>
+        </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Link 1</a> -->
           <?php echo anchor('site/livros', 'Listar Livros', ['class' => 'nav-link']) ?>
@@ -47,6 +50,9 @@
           <li class="nav-item">
             <?php echo anchor('/', 'Principal', ['class' => 'nav-link']) ?>
           </li>
+          <li class="nav-item active">
+            <?php echo anchor('usuarios', 'Listar Usuários', ['class' => 'nav-link']) ?>
+           </li>
           <li class="nav-item">
             <?php echo anchor('site/livros', 'Listar Livros', ['class' => 'nav-link']) ?>
           </li>

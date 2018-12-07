@@ -52,4 +52,62 @@ class Site extends CI_Controller
 		}
 	}
 
+	public function formulario()
+	{
+		$data['titulo'] = 'Formulário de livros';
+
+		// carregar o helper form
+		$this->load->helper('form');
+
+		$this->load->view('layout/topo', $data);
+		$this->load->view('formulario/index');
+		$this->load->view('layout/rodape');
+	}
+
+	public function enviar()
+	{
+		if ($this->input->post()) {
+			echo '<pre>';
+			print_r($this->input->post());
+		}
+	}
+
+	public function validar()
+	{
+		$data['titulo'] = 'Biblioteca Form_Validation';
+		$this->load->helper('form');
+
+		// Carregamento do form validation
+		$this->load->library('form_validation');
+
+		// Required e min_length
+		$this->form_validation->set_rules('nome', 'Nome', 'required|min_length[3]', ['required' => 'O campo nome é obrigatório', 'min_length' => 'O Nome deve conter mais de 3 caracteres']);
+		// Email validation
+		$this->form_validation->set_rules('email', 'E-Mail', 'required|valid_email', ['required' => 'O campo e-mail é obrigatório', 'valid_email' => 'Você deve passar um e-mail válido']);
+		// Codigo validation -> Only numbers
+		$this->form_validation->set_rules('codigo', 'Código', 'numeric', ['numeric' => 'Utilize apenas números para o campo Código']);
+		// Validar senha com trim, required e min e max length
+		$this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[6]|max_length[10]', [
+			'required' => 'Você deve passar uma senha',
+			'min_length' => 'Sua senha deve ter no mínimo 6 letras ou números',
+			'max_length' => 'Sua senha deve ter no máximo 10 letras ou números'
+		]);
+		
+		// Validar se a contra senha combina com a senha
+		$this->form_validation->set_rules('confirm_senha', 'Confirmação de senha', 'trim|required|matches[senha]', [
+			'required' => 'Você deve passar uma senha que combine com a passada anteriormente',
+			'matches' => 'As senhas não combinam',
+		]);
+
+
+		if ($this->form_validation->run() === true) {
+			echo 'Formulário validado com sucesso';
+		} else {
+			$this->load->view('layout/topo', $data);
+			$this->load->view('formulario/valida');
+			$this->load->view('layout/rodape');
+		}
+
+	}
+
 }

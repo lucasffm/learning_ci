@@ -110,4 +110,42 @@ class Site extends CI_Controller
 
 	}
 
+	public function session()
+	{
+		// $_SESSION['chave'] = 'Curso de CodeIgniter';
+		// echo "<pre>";
+		// print_r($_SESSION);
+		// echo "</pre>";
+
+		// $this->session->set_userdata('aula21', 'Na aula 21 trabalhando com sessão');
+		// unset($_SESSION['chave']);
+		// $this->session->unset_userdata('aula21');
+
+		// $dadosSession = [
+		// 	'nome' => 'Lucas de Freitas',
+		// 	'email' => 'lucasffm@gmail.com',
+		// 	'logado' => true
+		// ];
+		// $this->session->set_userdata($dadosSession);
+		// $this->session->sess_destroy();
+
+		$this->session->set_flashdata('msg', 'Cadastro realizado com sucesso');
+
+
+	}
+
+	public function mostrar()
+	{
+		echo "<pre>";
+		print_r($this->session);
+		echo "</pre>";
+	}
+
+	public function flash()
+	{
+		echo "<pre>";
+		print_r($this->session->flashdata('msg'));
+		echo "</pre>";
+	}
+
 }
